@@ -50,17 +50,23 @@ import com.baomidou.mybatisplus.annotation.IdType;
 </#if>
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import me.zhengjie.base.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
 * @description /
 * @author ${author}
 * @date ${date}
 **/
-@Data
+@Getter
+@Setter
 @TableName("${tableName}")
-public class ${className} implements Serializable {
+public class ${className} extends BaseEntity implements Serializable {
 <#if columns??>
     <#list columns as column>
+
+    <#if !(column.changeColumnName?contains("createBy") || column.changeColumnName?contains("createTime") || column.changeColumnName?contains("updateBy") || column.changeColumnName?contains("updateTime"))>
 
     <#if column.columnKey = 'PRI'>
     @TableId(value = "${column.columnName}"<#if auto>, type = IdType.AUTO</#if>)
@@ -78,6 +84,7 @@ public class ${className} implements Serializable {
     @ApiModelProperty(value = "${column.changeColumnName}")
     </#if>
     private ${column.columnType} ${column.changeColumnName};
+    </#if>
     </#list>
 </#if>
 
