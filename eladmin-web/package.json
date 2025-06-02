@@ -84,7 +84,7 @@
     "babel-plugin-dynamic-import-node": "2.3.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "chalk": "2.4.2",
-    "chokidar": "2.1.5",
+    "chokidar": "^4.0.3",
     "compression-webpack-plugin": "5.0.2",
     "connect": "3.6.6",
     "eslint": "5.15.3",
